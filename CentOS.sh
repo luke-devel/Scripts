@@ -38,8 +38,14 @@ sudo mysql_secure_installation
 # Install Git
 yum install git -y
 
+# Python 3.6 + pip3
+yum install python36
+yum install python36-devel
+yum install python36-setuptools
+easy_install-3.6 pip
+
 # Install bpytop
-sudo dnf install bpytop
+pip3 install bpytop --upgrade
 
 # Install wget 
 yum install -y wget
