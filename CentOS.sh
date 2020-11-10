@@ -12,6 +12,10 @@ yum groupinstall development -y
 # Install dnf
 yum install dnf -y
 
+# GH cli
+sudo dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
+sudo dnf install gh -y
+
 # NeoFetch
 sudo dnf -y install dnf-plugins-core
 sudo dnf -y copr enable konimex/neofetch
@@ -33,15 +37,15 @@ systemctl start mysqld
 
 # Display mqsql status, and secure instillation
 systemctl status mysqld
-sudo mysql_secure_installation
+# sudo mysql_secure_installation
 
 # Install Git
 yum install git -y
 
 # Python 3.6 + pip3
-yum install python36
-yum install python36-devel
-yum install python36-setuptools
+yum install python36 -y
+yum install python36-devel -y
+yum install python36-setuptools -y
 easy_install-3.6 pip
 
 # Install bpytop
@@ -63,7 +67,7 @@ yum install wkhtmltopdf -y
 yum install python-pdfkit -y
 
 # tmux
-yum install tmux
+yum install tmux -y
 
 # Update everything again just to make sure
 yum update -y
