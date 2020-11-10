@@ -9,6 +9,14 @@ yum -y install yum-utils
 # Install dev tools
 yum groupinstall development -y
 
+# Install dnf
+yum install dnf -y
+
+# NeoFetch
+sudo dnf -y install dnf-plugins-core
+sudo dnf -y copr enable konimex/neofetch
+sudo dnf -y install neofetch
+
 # Install vim
 yum install vim -y
 
@@ -23,35 +31,24 @@ yum update -y
 yum install mysql-server -y
 systemctl start mysqld
 
-# Install Git 1.8 
+# Display mqsql status, and secure instillation
+systemctl status mysqld
+sudo mysql_secure_installation
+
+# Install Git
 yum install git -y
 
-
-# Install htop 
-yum install -y htop
-
+# Install bpytop
+sudo dnf install bpytop
 
 # Install wget 
 yum install -y wget
 
-
-# Install mlocate 
-yum install -y mlocate
-updatedb
-
-
-# Install Nginx 1.8 
+# Install Nginx
 yum install nginx -y
-
-# Install Supervisord 
-yum install supervisor -y
-
-# Install Composer
-yum install composer -y
 
 # Install Docker 
 yum install docker -y
-
 
 # Install wkhtmltopdf 
 yum install wkhtmltopdf -y
@@ -59,9 +56,11 @@ yum install wkhtmltopdf -y
 # Install pdftk 
 yum install python-pdfkit -y
 
+# tmux
+yum install tmux
+
 # Update everything again just to make sure
 yum update -y
 
-# Display mqsql status, and secure instillation
-systemctl status mysqld
-sudo mysql_secure_installation
+# Run bpytop and finish
+bpytop
